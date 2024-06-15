@@ -20,6 +20,7 @@ public:
     void draw_n() const;
     void clear(const std::string& value);
     int RemainCells();
+    int move(int& x, int& y, int event);
 
     std::vector<std::vector<int>> table_n;
 

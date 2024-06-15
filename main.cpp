@@ -3,6 +3,8 @@
 //
 
 #include <iostream>
+#include <time.h>
+
 #ifdef _WIN32
     #include "header/MineGame_win.h"
 #elif defined(__linux__)
@@ -11,7 +13,20 @@
 
 int main()
 {
-    long long init_time;
-    run(6,5,5);
+    Pos map_size;
+    map_size.x = 3;
+    map_size.y = 3;
+
+    // 시간 기록
+    unsigned long init_time = (unsigned long)time(NULL);
+    switch(run(map_size.x, map_size.y, int(map_size.x*map_size.y*0.2)))
+    {
+        case -1:
+            std::cout << "FAIL" << std::endl;
+            break;
+        case 0:
+            std::cout << "TIME : " << (unsigned long)time(NULL) - init_time << std::endl;
+            break;
+    }
 }
 

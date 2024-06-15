@@ -30,6 +30,17 @@ void Table::draw() const {
         const std::string left_intersect = "+";
         const std::string right_intersect = "+";
     #elif defined(__linux__)
+        const std::string top_left = u8"┌";
+        const std::string top_right = u8"┐";
+        const std::string bottom_left = u8"└";
+        const std::string bottom_right = u8"┘";
+        const std::string horizontal = u8"─";
+        const std::string vertical = u8"│";
+        const std::string intersect = u8"┼";
+        const std::string top_intersect = u8"┬";
+        const std::string bottom_intersect = u8"┴";
+        const std::string left_intersect = u8"├";
+        const std::string right_intersect = u8"┤";
     #endif
 
     // 상단 경계 그리기
@@ -86,6 +97,7 @@ void Table::clear(const std::string& value)
     }
 }
 
+// 열지 않은 타일의 수를 알려준다.
 int Table::RemainCells()
 {
     int sum=0;
@@ -97,4 +109,30 @@ int Table::RemainCells()
         }
     }
     return (x_size*y_size-sum);
+}
+
+int Table::move(int& x, int& y, int event)
+{
+    switch (event)
+    {
+    case 'a':
+        if(x > 0) --x;
+        this->set(x, y, "X");
+        break;
+    case 's':
+        if(y < this->y_size) ++y;
+        this->set(x, y, "X");
+        break;
+    case 'w':
+        if(y > 0) --y;
+        this->set(x, y, "X");
+        break;
+    case 'd':
+        if(x < this->x_size-1) ++x;
+        this->set(x, y, "X");
+        break;
+    default:
+        return event;
+    }
+    return 0;
 }
