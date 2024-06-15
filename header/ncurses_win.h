@@ -1,7 +1,7 @@
-#ifndef NCURSES_H
-#define NCURSES_H
+#ifndef NCURSES_WIN_H
+#define NCURSES_WIN_H
 
-#include <ncurses.h>
+#include <conio.h>
 #include <string>
 #include <iostream>
 
@@ -9,7 +9,5 @@ void cursor_init();
 void cursor_set(int x, int y, const char *value);
 void cursor_exit();
 void cursor_refresh();
-char KeyEvent();
-char GetCharAtCursor(int x, int y);
 
 #endif

@@ -2,7 +2,12 @@
 // Created by leecurrent04 on 24. 5. 27.
 //
 
-#include "../header/MineGame.h"
+
+#ifdef _WIN32
+    #include "../header/MineGame_win.h"
+#elif defined(__linux__)
+    #include "../header/MineGame.h"
+#endif
 
 int run(int map_x, int map_y, int num_mines)
 {
