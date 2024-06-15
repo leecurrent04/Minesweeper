@@ -10,6 +10,5 @@ void cursor_set(int x, int y, const char *value);
 void cursor_exit();
 void cursor_refresh();
 char KeyEvent();
-char GetCharAtCursor(int x, int y);
 
 #endif

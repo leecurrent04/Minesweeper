@@ -8,12 +8,12 @@ all:
 	./out/main.out
 
 all_win:
-	g++ -Wall -c ./main.cpp -o out/main.o
-	g++ -Wall -c ./lib/Mine.cc -o out/mine.o
-	g++ -Wall -c ./lib/Table.cc -o out/Table.o
-	g++ -Wall -c ./lib/ncurses_win.cc -o out/ncurses.o
-	g++ -Wall -c ./lib/MineGame.cc -o out/MineGame.o
-	g++ -Wall -g ./out/*.o -o out/main.out -lncurses
+	g++ -Wall -std=c++17 -c ./main.cpp -o out/main.o
+	g++ -Wall -std=c++17 -c ./lib/Mine.cc -o out/mine.o
+	g++ -Wall -std=c++17 -c ./lib/Table.cc -o out/Table.o
+	g++ -Wall -std=c++17 -c ./lib/ncurses_win.cc -o out/ncurses.o
+	g++ -Wall -std=c++17 -c ./lib/MineGame.cc -o out/MineGame.o
+	g++ -Wall -std=c++17 -g ./out/*.o -o out/main.out
 	./out/main.out
 
 run :

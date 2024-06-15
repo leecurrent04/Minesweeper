@@ -14,7 +14,7 @@ int run(int map_x, int map_y, int num_mines)
     Mine::MineInit(map_x, map_y, num_mines);
     Mine mine[num_mines];
     Table table(map_x, map_y);
-    table.clear("□");
+    table.clear("O");
 
     Table mine_table(map_x, map_y, 0);      // 타일 주변의 지뢰 갯수를 저장함
     Table mine_opened(map_x, map_y, 0);     // 타일의 개방 여부를 저장함
@@ -37,7 +37,7 @@ int run(int map_x, int map_y, int num_mines)
         if(mine_opened.table_n[Cur.y][Cur.x]){
             table.set(Cur.x, Cur.y, std::to_string(mine_table.table_n[Cur.y][Cur.x]));
         }
-        else table.set(Cur.x, Cur.y, "□");
+        else table.set(Cur.x, Cur.y, "O");
 
         cursor_init();
         switch (KeyEvent())

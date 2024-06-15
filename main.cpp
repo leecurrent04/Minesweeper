@@ -3,7 +3,11 @@
 //
 
 #include <iostream>
-#include "header/MineGame.h"
+#ifdef _WIN32
+    #include "header/MineGame_win.h"
+#elif defined(__linux__)
+    #include "header/MineGame.h"
+#endif
 
 int main()
 {

@@ -1,4 +1,4 @@
-#include "../header/ncurses.h"
+#include "../header/ncurses_win.h"
 
 void cursor_init()
 {
@@ -19,6 +19,6 @@ void cursor_refresh()
 
 char KeyEvent()
 {
-    return _kbhit();
+    return _getch();
 }
 
