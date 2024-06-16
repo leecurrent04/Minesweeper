@@ -11,6 +11,7 @@ void cursor_set(int x, int y, const char *value)
 
 void cursor_exit()
 {
+    system(CMD_CLEAR_SCREEN);
 }
 
 void cursor_refresh()

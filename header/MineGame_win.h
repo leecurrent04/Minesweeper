@@ -4,12 +4,11 @@
 
 #include <iostream>
 
+#include "Common.h"
 #include "Table.h"
 #include "Mine.h"
 #include "ncurses_win.h"
 
-#define CMD_CLEAR_SCREEN "cls"
-
-int run(int map_x, int map_y, int num_mines);
+int run(Pos map_size, int num_mines);
 
 #endif

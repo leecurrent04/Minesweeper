@@ -22,6 +22,7 @@ void cursor_exit()
 {
     // ncurses 종료
     endwin();
+    system(CMD_CLEAR_SCREEN);
 }
 
 void cursor_refresh()

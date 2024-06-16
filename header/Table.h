@@ -1,6 +1,7 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include "Common.h"
 #include <iostream>
 #include <vector>
 #include <iomanip>
@@ -8,24 +9,22 @@
 class Table 
 {
 public:
-    Table(int x, int y)
-    : x_size(x), y_size(y), table(y, std::vector<std::string>(x, " ")) {}
+    Table(Pos size)
+    : size(size.x, size.y), table(size.y, std::vector<std::string>(size.x, " ")) {}
     
-    Table(int x, int y, int value)
-    : x_size(x), y_size(y), table_n(y, std::vector<int>(x, value)) {}
+    Table(Pos size, int value)
+    : size(size.x, size.y), table_n(size.y, std::vector<int>(size.x, value)) {}
 
-    void set(int col, int row, const std::string& value);
-    void setNum(int col, int row, int value);
-
-    void draw() const;
+    void set(Pos position, const std::string& value);
+    void setNum(Pos position, int value);
+    int getNum(Pos position);
+    void draw(const std::string& title = "") const;
     void drawNum() const;
     void clear(const std::string& value);
-    int move(int& x, int& y, int event);
-    int getNum(int x, int y);
+    int move(Pos& position, int event);
 
 private:
-    int x_size;
-    int y_size;
+    Pos size;
 
 protected:
     std::vector<std::vector<std::string>> table;
@@ -36,9 +35,15 @@ class List : protected Table
 {
 public:
     List(int size)
-    :size(size), Table(2,size) {}
+    :size(size), Table(Pos(2,size)) {}
 
-    void append(const char* []);
+    void append(const std::string& label = "");
+    void set(int num, const std::string& value);
+    void setLabel(int num, const std::string& label);
+    void setLabel(const std::vector<std::string>& labels);
+    void draw(const std::string& title = "") const;
+    int move(int& num, int event);
+    int moveDial(int& num, int& values, int& min, int& max, int event);
 
 private:
     int size;

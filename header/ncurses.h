@@ -11,4 +11,6 @@ void cursor_exit();
 void cursor_refresh();
 char KeyEvent();
 
+#define CMD_CLEAR_SCREEN "clear"
+
 #endif
