@@ -13,8 +13,8 @@ all_win:
 	g++ -Wall -std=c++17 -c ./lib/Table.cc -o out/Table.o
 	g++ -Wall -std=c++17 -c ./lib/ncurses_win.cc -o out/ncurses.o
 	g++ -Wall -std=c++17 -c ./lib/MineGame.cc -o out/MineGame.o
-	g++ -Wall -std=c++17 -g ./out/*.o -o out/main.out
-	./out/main.out
+	g++ -Wall -std=c++17 -g ./out/*.o -o out/main.exe
+	./out/main.exe
 
 run :
 	./out/main.out

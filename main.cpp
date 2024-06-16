@@ -28,5 +28,7 @@ int main()
             std::cout << "TIME : " << (unsigned long)time(NULL) - init_time << std::endl;
             break;
     }
+
+    return 0;
 }
 

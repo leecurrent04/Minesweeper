@@ -33,8 +33,3 @@ char KeyEvent()
 {
     return getch();
 }
-
-char GetCharAtCursor(int x, int y) {
-    getyx(stdscr, y, x);  // 현재 커서 위치를 가져옴
-    return mvinch(y, x) & A_CHARTEXT;  // 현재 위치의 문자를 가져옴
-}

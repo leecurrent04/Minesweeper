@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <time.h>
-#include <vector>
+#include "Table.h"
 
 typedef struct Pos{
     int x;
@@ -13,25 +13,22 @@ typedef struct Pos{
 class Mine
 {
     private:
-        // static
-        static int map_wide;
-        static int map_height;
-        static bool initializeSrand();
-
-        Pos position;
-        Pos GetRandomPos();
+        int num_mines;
+        Pos map_size;
 
     public:
-        // 지뢰의 위치를 저장하는 변수
-        static std::vector<int> pos_x_mine;
-        static std::vector<int> pos_y_mine;
-        static int num_mines;
-        static void MineInit(int w, int h, int num_mines);
-        static void CountMines(std::vector<std::vector<int>>& table, int m, int n, int x_max, int y_max);
-        static bool IsMine(int x, int y);
-        int RemainMines(std::vector<std::vector<int>>& table);
+        Table table;      
+        Table grid;        // 타일 주변의 지뢰 갯수를 저장함
+        Table opened;     // 타일의 개방 여부를 저장함
+        Table flag;     // 타일의 개방 여부를 저장함
 
-        void SetPos();
+        Mine(int x, int y, int num);
+
+        void SetTable();
+        void SetGrid();
+        int RemainCells();
+        bool IsMine(int x, int y);
+
 };
 
 #endif
