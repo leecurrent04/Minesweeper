@@ -2,7 +2,6 @@
 #define SCENE_H
 
 #include "Common.h"
-#include "ncurses.h"
 #include "Table.h"
 #include "time.h"
 
@@ -10,8 +9,10 @@
 
 #ifdef _WIN32
     #include "MineGame_win.h"
+    #include "ncurses_win.h"
 #elif defined(__linux__)
     #include "MineGame.h"
+    #include "ncurses.h"
 #endif
 
 enum start_scene_list{
